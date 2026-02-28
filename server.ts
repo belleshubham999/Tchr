@@ -21,6 +21,22 @@ async function startServer() {
 
   app.use(express.json({ limit: '10mb' }));
 
+  // Set correct MIME types
+  app.use((req, res, next) => {
+    if (req.path.endsWith('.css')) {
+      res.type('text/css');
+    } else if (req.path.endsWith('.js')) {
+      res.type('application/javascript');
+    } else if (req.path.endsWith('.svg')) {
+      res.type('image/svg+xml');
+    } else if (req.path.endsWith('.png')) {
+      res.type('image/png');
+    } else if (req.path.endsWith('.jpg') || req.path.endsWith('.jpeg')) {
+      res.type('image/jpeg');
+    }
+    next();
+  });
+
   // Health check
   app.get("/api/health", (req, res) => {
     res.json({ status: "ok" });
@@ -37,7 +53,20 @@ async function startServer() {
   } else {
     app.use(express.static(path.join(__dirname, "dist"), {
       maxAge: '1y',
-      etag: false
+      etag: false,
+      setHeaders: (res, path) => {
+        if (path.endsWith('.css')) {
+          res.setHeader('Content-Type', 'text/css');
+        } else if (path.endsWith('.js')) {
+          res.setHeader('Content-Type', 'application/javascript');
+        } else if (path.endsWith('.svg')) {
+          res.setHeader('Content-Type', 'image/svg+xml');
+        } else if (path.endsWith('.png')) {
+          res.setHeader('Content-Type', 'image/png');
+        } else if (path.endsWith('.jpg') || path.endsWith('.jpeg')) {
+          res.setHeader('Content-Type', 'image/jpeg');
+        }
+      }
     }));
     app.get("*", (req, res) => {
       res.sendFile(path.join(__dirname, "dist", "index.html"));
