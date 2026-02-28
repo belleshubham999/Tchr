@@ -2,8 +2,9 @@ import React, { useState, useEffect } from 'react';
 import { Eye, EyeOff, Loader2, CheckCircle2, AlertCircle } from 'lucide-react';
 import { motion } from 'motion/react';
 import { supabase } from '../lib/supabase';
-import authImg from '../assets/auth.png';
-import authImg2 from '../assets/auth2.png';
+
+const authImg = '/auth.webp';
+const authImg2 = '/auth2.webp';
 
 interface ResetPasswordPageProps {
   onSuccess: () => void;
@@ -93,7 +94,7 @@ export default function ResetPasswordPage({ onSuccess }: ResetPasswordPageProps)
   return (
     <div className="flex min-h-screen bg-white overflow-hidden">
       {/* Left Side - Image & Welcome */}
-      <div className="hidden lg:flex lg:w-1/2 relative items-center justify-center p-12 bg-cover bg-center" style={{ backgroundImage: `url(${authImg})` }}>
+      <div className="hidden lg:flex lg:w-1/2 relative items-center justify-center p-12 bg-cover bg-center" style={{ backgroundImage: `url(${authImg})`, backgroundSize: 'cover', backgroundPosition: 'center', backgroundAttachment: 'fixed' }}>
         <div className="absolute inset-0 bg-black/20"></div>
         <div className="relative z-10 text-center text-white max-w-md">
           <motion.div
@@ -110,7 +111,7 @@ export default function ResetPasswordPage({ onSuccess }: ResetPasswordPageProps)
       </div>
 
       {/* Right Side - Form */}
-      <div className="w-full lg:w-1/2 flex items-center justify-center p-8 relative" style={{ backgroundImage: `url(${authImg2})`, backgroundSize: 'cover', backgroundPosition: 'center' }}>
+      <div className="w-full lg:w-1/2 flex items-center justify-center p-8 relative" style={{ backgroundImage: `url(${authImg2})`, backgroundSize: 'cover', backgroundPosition: 'center', backgroundAttachment: 'fixed', willChange: 'background-image' }}>
         <div className="absolute inset-0 pointer-events-none"></div>
 
         <motion.div
