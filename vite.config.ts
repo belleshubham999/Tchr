@@ -10,6 +10,7 @@ export default defineConfig(({mode}) => {
   const env = loadEnv(mode, '.', '');
   
   return {
+    publicDir: 'public',
     plugins: [
       react(), // Simple - let Vite handle the defaults
       tailwindcss()
