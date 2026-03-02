@@ -16,7 +16,7 @@ export default defineConfig(({mode}) => {
       tailwindcss()
     ],
     define: {
-      'process.env.GEMINI_API_KEY': JSON.stringify(env.GEMINI_API_KEY || ''),
+      'process.env.SARVAM_API_KEY': JSON.stringify(env.SARVAM_API_KEY || ''),
     },
     resolve: {
       alias: {
@@ -37,8 +37,7 @@ export default defineConfig(({mode}) => {
           manualChunks: {
             'vendor': ['react', 'react-dom'],
             'motion': ['motion/react'],
-            'markdown': ['react-markdown'],
-            'gemini': ['@google/genai'],
+            'markdown': ['react-markdown']
           }
         }
       }
