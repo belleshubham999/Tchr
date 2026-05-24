@@ -8,10 +8,12 @@ const __dirname = path.dirname(fileURLToPath(import.meta.url));
 
 export default defineConfig(({mode}) => {
   const env = loadEnv(mode, '.', '');
+
+  const isGitHubPages = process.env.GITHUB_ACTIONS === 'true';
   
   return {
     publicDir: 'public',
-    base: '/Tchr/',
+    base: isGitHubPages ? '/Tchr/' : '/',
     plugins: [
       react(), // Simple - let Vite handle the defaults
       tailwindcss()
