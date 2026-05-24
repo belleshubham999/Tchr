@@ -499,7 +499,7 @@ Notes: ${newNote.content}`;
         ${isSidebarOpen ? 'translate-x-0' : '-translate-x-full'}
       `}>
                 <div className="flex items-center gap-3 px-2">
-                    <img src="/favicon-32x32.png" alt="Tchr Logo" className="w-10 h-10 rounded-xl shadow-lg shadow-indigo-500/20" loading="eager" />
+                    <img src="./favicon-32x32.png" alt="Tchr Logo" className="w-10 h-10 rounded-xl shadow-lg shadow-indigo-500/20" loading="eager" />
                     <h1 className="text-2xl font-bold tracking-tight">Tchr</h1>
                 </div>
 
