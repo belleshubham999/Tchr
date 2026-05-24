@@ -35,7 +35,12 @@ jobs:
         run: npm ci
 
       - name: Build project
-        run: npm run build
+        run: |
+          # Parse secrets object and export each key dynamically
+          echo "$SECRETS_CONTEXT" | jq -r 'to_entries|map("\(.key)=\(.value|tostring)")|.[]' > .env
+          npm run build
+        env:
+          SECRETS_CONTEXT: ${{ toJson(secrets) }}
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
