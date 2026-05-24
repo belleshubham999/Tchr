@@ -11,6 +11,7 @@ export default defineConfig(({mode}) => {
   
   return {
     publicDir: 'public',
+    base: '/Tchr/',
     plugins: [
       react(), // Simple - let Vite handle the defaults
       tailwindcss()
