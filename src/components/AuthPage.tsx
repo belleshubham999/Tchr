@@ -3,8 +3,8 @@ import { Eye, EyeOff, Loader2, CheckCircle2 } from 'lucide-react';
 import { motion, AnimatePresence } from 'motion/react';
 import { supabase } from '../lib/supabase';
 
-const authImg = '/auth.webp';
-const authImg2 = '/auth2.webp';
+const authImg = './auth.webp';
+const authImg2 = './auth2.webp';
 
 interface AuthPageProps {
   onSuccess: () => void;
