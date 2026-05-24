@@ -2,7 +2,7 @@
   "name": "Tchr - AI Learning Assistant",
   "short_name": "Tchr",
   "description": "Your AI-powered learning companion for smarter studying. Create notes, flashcards, study plans, and take AI-generated exams.",
-  "start_url": "/",
+  "start_url": ".",
   "display": "standalone",
   "background_color": "#ffffff",
   "theme_color": "#6366f1",
